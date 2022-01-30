@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hXR-wh-sSz">
+    <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--MainVC-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="MainVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="MainVC" customModule="prZoomScrollAndImage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="sGy-eL-078">
+                                <rect key="frame" x="339" y="496.5" width="409" height="32"/>
+                                <segments>
+                                    <segment title="768_900"/>
+                                    <segment title="1536_900"/>
+                                    <segment title="600_1900"/>
+                                    <segment title="600_300"/>
+                                    <segment title="300_600"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentChanged:" destination="Y6W-OH-hqX" eventType="valueChanged" id="Ya4-Hx-R03"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RZZ-eg-faE">
+                                <rect key="frame" x="628" y="551.5" width="120" height="40"/>
+                                <color key="backgroundColor" red="0.01175933052" green="0.38823378089999999" blue="0.54901707170000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="FIs-7B-qc7"/>
+                                    <constraint firstAttribute="width" constant="120" id="LiU-iT-aHP"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Go"/>
+                                <connections>
+                                    <action selector="onBtnGo" destination="Y6W-OH-hqX" eventType="touchUpInside" id="oaL-K7-mkI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="RZZ-eg-faE" secondAttribute="trailing" constant="20" id="1ex-z9-myF"/>
+                            <constraint firstItem="sGy-eL-078" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="1zz-PH-sSA"/>
+                            <constraint firstItem="RZZ-eg-faE" firstAttribute="top" secondItem="sGy-eL-078" secondAttribute="bottom" constant="24" id="CBJ-9k-GQf"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="sGy-eL-078" secondAttribute="trailing" constant="20" id="DsG-ft-V5o"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="iiE-hr-Ze8"/>
+                    <connections>
+                        <outlet property="segment" destination="sGy-eL-078" id="RjY-5z-czy"/>
+                        <segue destination="58o-4q-b5E" kind="show" identifier="toScrollWithImageVC" id="f2P-5K-Zsj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="915.625" y="108.984375"/>
+        </scene>
+        <!--Scroll With ImageVC-->
+        <scene sceneID="XmK-v5-pij">
+            <objects>
+                <viewController storyboardIdentifier="ScrollWithImageVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="58o-4q-b5E" customClass="ScrollWithImageVC" customModule="prZoomScrollAndImage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Na8-xt-Rdd">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kr3-0q-GwY" customClass="UIScrollView">
+                                <rect key="frame" x="0.0" y="20" width="768" height="950"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f1o-fJ-NEm">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGray3Color"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nq4-vZ-ia0">
+                                <rect key="frame" x="20" y="982" width="120" height="34"/>
+                                <color key="backgroundColor" red="0.01175933052" green="0.38823378089999999" blue="0.54901707170000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="8ht-KZ-7E8"/>
+                                    <constraint firstAttribute="width" constant="120" id="hJd-mT-Fbf"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="onBtnBack" destination="58o-4q-b5E" eventType="touchUpInside" id="hUh-8b-UvQ"/>
+                                    <action selector="onBtnGo" destination="Y6W-OH-hqX" eventType="touchUpInside" id="9gr-nu-eaR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="kkW-aT-S1S"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kkW-aT-S1S" firstAttribute="bottom" secondItem="nq4-vZ-ia0" secondAttribute="bottom" constant="8" id="JVh-gH-vNr"/>
+                            <constraint firstItem="Kr3-0q-GwY" firstAttribute="top" secondItem="kkW-aT-S1S" secondAttribute="top" id="bYL-Tb-puh"/>
+                            <constraint firstItem="nq4-vZ-ia0" firstAttribute="leading" secondItem="kkW-aT-S1S" secondAttribute="leading" constant="20" id="iSC-vc-Vav"/>
+                            <constraint firstItem="Kr3-0q-GwY" firstAttribute="leading" secondItem="kkW-aT-S1S" secondAttribute="leading" id="q11-uu-0jD"/>
+                            <constraint firstItem="kkW-aT-S1S" firstAttribute="bottom" secondItem="Kr3-0q-GwY" secondAttribute="bottom" constant="54" id="r6d-wM-C0A"/>
+                            <constraint firstItem="kkW-aT-S1S" firstAttribute="trailing" secondItem="Kr3-0q-GwY" secondAttribute="trailing" id="vtg-bv-cQM"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="mNe-PZ-WmL"/>
+                    <connections>
+                        <outlet property="imgVw" destination="f1o-fJ-NEm" id="JBT-id-ECl"/>
+                        <outlet property="scrollVw" destination="Kr3-0q-GwY" id="Mkg-Bf-WMk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lmN-h2-dxk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1607.8125" y="108.984375"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bty-w8-Up6">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="hXR-wh-sSz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rRQ-mn-cT0">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="8OZ-7U-S9k"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eag-6H-qss" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="256" y="109"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
